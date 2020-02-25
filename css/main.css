@@ -97,7 +97,7 @@ textarea {
 
 
 html {
-  background-color: #666666;
+  background-color: #222;
   height: 100%;
   width: 100%;
 }
@@ -109,32 +109,73 @@ body {
   height: 100%;
 }
 
-.wrapper {
-  /*add display:flex and set justify-content to space-between*/
-  font-weight: 700;
+header {
+  font-size: 2em;
+}
+
+main {
+  font-size: 1.3em;
+  height: 150px;
+  border-bottom: 2px solid #fff;
+}
+
+footer {
+  border-top: 2px solid #fff;
+}
+
+header,
+footer {
+  height: 80px;
+  width: 100%;
+  font-family: 'Dosis' ;
+}
+
+
+
+header,
+footer,
+main {
+  display: flex;
+  color: #fff;
+}
+
+.flex-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-flow: row wrap;
 }
 
-.div-1, .div-2, .div-3 {
-  /*give the divs a width of 30%, add display:flex, set justify-content and align-items to center*/
-  color: #fff;
-  line-height: 1.5em;
-  font-size: 1.3em;
-  background-color: #666666;
-  height: 300px;
-  display:flex;
-  width: 30%;
+.flex-items {
+  display: flex;
   justify-content: center;
   align-items: center;
+  line-height: 1.5em;
+  font-size: 1.3em;
+  height: 300px;
+  width: 30%;
 }
 
 p{
   font-family: 'Handlee';
+  color: #fff;
+}
+
+#div-1, #div-2 {
+  border-right: 2px solid #fff;
+  padding-right: 20px;
 }
 
 
+footer ul {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+}
+
+footer li {
+  padding: 10px;
+}
 
 
 /* ==========================================================================
@@ -217,17 +258,22 @@ p{
    Modify as content requires.
    ========================================================================== */
 
-   @media all and (min-width: 1200px) {
-       .div-1, .div-2, .div-3 {
-         flex-basis: 30%;
+   @media all and (max-width: 768px) {
+       body {
+         padding: 1em;
        }
-
-   .div-1, .div-2 {
-     border-right: 2px solid #fff;
-     padding-right: 30px;
    }
 
-}
+   @media (min-width: 1200px) {
+     #div-1,
+     #div-2{
+         /* set your flex value to 1 50% */
+     }
+
+     #div-3 {
+       /* set your flex value to 1 100% */
+     }
+   }
 @media print,
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 1.25dppx),
